@@ -1,0 +1,29 @@
+{
+  "name": "dividine",
+  "version": "1.0.0",
+  "description": "An app to divinely divide a bill between you and your friends! Double Down on DiviDine!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "money",
+    "splitting",
+    "dining",
+    "dine",
+    "friends",
+    "budget",
+    "finance"
+  ],
+  "author": "Dividine Team",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^8.1.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}
