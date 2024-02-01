@@ -9,7 +9,6 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-// Endpoint to save a new user to the database
 app.post('/create-user', async (req, res) => {
   try {
     const { username, email } = req.body;
