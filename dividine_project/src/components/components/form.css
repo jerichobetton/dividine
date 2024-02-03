@@ -1,0 +1,68 @@
+/* src/components/form.css */
+.form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #4d4c4c;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2185d0;
+  }
+  
+  p {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  p a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+ 
+.login-image {
+    width: 100%; /* Adjust the width as needed */
+    max-height: 200px; /* Adjust the max height as needed */
+    object-fit: cover; /* Preserve aspect ratio and cover the container */
+    margin-bottom: 20px; /* Add spacing between the image and other elements */
+  }
+  
+  
