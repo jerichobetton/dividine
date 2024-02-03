@@ -1,6 +1,5 @@
 const base64url = require("base64url");
 const uuid = require("uuid").v4;
-
 const passport = require("passport");
 
 class AuthController {
@@ -27,6 +26,15 @@ class AuthController {
     res.render("auth/login");
   }
 
+  getChallengeFrom(store) {
+    return (req, res, next) => {
+      store.challenge(req, (err, challenge) => {
+        if (err) return next(err);
+        res.json({ challenge: base64url.encode(challenge) });
+      });
+    };
+  }
+
   logout(req, res, next) {
     req.logout((err) => {
       if (err) return next(err);
@@ -44,12 +52,13 @@ class AuthController {
         id: uuid({}, Buffer.alloc(16)),
         name: req.body.email,
       };
+
       store.challenge(req, { user: user }, (err, challenge) => {
         if (err) return next(err);
 
         user.id = base64url.encode(user.id);
 
-        req.json({
+        res.json({
           user: user,
           challenge: base64url.encode(challenge),
         });
