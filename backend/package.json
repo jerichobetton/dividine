@@ -1,5 +1,5 @@
 {
-  "name": "mongodb",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.0"
