@@ -1,0 +1,20 @@
+.hero {
+    text-align: center;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .P1 {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-top: 10px;
+    font-weight: bold;
+  }
+  
+  
+  
