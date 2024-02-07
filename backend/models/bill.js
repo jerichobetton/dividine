@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const billSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
   totalAmount: {
     type: Number,
     required: true,
@@ -15,6 +19,6 @@ const billSchema = new mongoose.Schema({
   },
 });
 
-const Bill = mongoose.model('Bill', billSchema);
+const Bill = mongoose.model("Bill", billSchema);
 
 module.exports = Bill;
