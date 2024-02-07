@@ -30,5 +30,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedBill = await Bill.findByIdAndDelete(req.params.id);
+    if (!deletedBill) {
+      return res.status(404).json({ error: "Bill not found" });
+    }
+    res.json({ message: "Bill deleted successfully", deletedBill });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 module.exports = router;
