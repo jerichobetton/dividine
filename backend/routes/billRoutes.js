@@ -23,9 +23,8 @@ router.put("/", async (req, res) => {
   try {
     const { totalAmount, numberOfPeople, tip } = req.body;
     const updateResponse = await Bill.updateOne(
-      { totalAmount },
-      { numberOfPeople },
-      { tip }
+      { _id },
+      { username, totalAmount, numberOfPeople, tip }
     );
     updateResponse.acknowledged
       ? res.json(updateResponse)
