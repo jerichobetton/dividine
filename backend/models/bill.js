@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const billSchema = new mongoose.Schema({
-  userId: {
+  username: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
@@ -21,20 +21,5 @@ const billSchema = new mongoose.Schema({
 });
 
 const Bill = mongoose.model('Bill', billSchema);
-
-const newBill = new Bill({
-  userId: '', // Replace with the actual user ID
-  totalAmount: 0,
-  numberOfPeople: 0,
-  tip: 0,
-});
-
-newBill.save()
-  .then(savedBill => {
-    console.log('Bill saved successfully:', savedBill);
-  })
-  .catch(error => {
-    console.error('Error saving bill:', error);
-  });
 
 module.exports = Bill;
