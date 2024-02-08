@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const billSchema = new mongoose.Schema({
   username: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', 
     required: true,
   },
   totalAmount: {
@@ -22,3 +23,4 @@ const billSchema = new mongoose.Schema({
 const Bill = mongoose.model("Bill", billSchema);
 
 module.exports = Bill;
+
