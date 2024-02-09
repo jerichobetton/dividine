@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import loginImage from '/Users/michaelarbuthnot/dividine-repo/dividine_project/src/images/male looking at phone.jpeg';
 import './form.css';
 
@@ -11,7 +11,7 @@ function LoginForm() {
         e.preventDefault();
         // add login logic here
         console.log('Logging in:', email, password);
-    };
+        };
 
     return (
         <form className="form">
