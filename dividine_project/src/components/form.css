@@ -5,7 +5,7 @@
     padding: 2rem;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
@@ -35,7 +35,7 @@
   }
   
   button:hover {
-    background-color: #2185d0;
+    background-color: grey;
   }
   
   p {
@@ -59,10 +59,10 @@
 
  
 .login-image {
-    width: 100%; /* Adjust the width as needed */
-    max-height: 200px; /* Adjust the max height as needed */
-    object-fit: cover; /* Preserve aspect ratio and cover the container */
-    margin-bottom: 20px; /* Add spacing between the image and other elements */
+    width: 100%; 
+    max-height: 200px; 
+    object-fit: cover; 
+    margin-bottom: 20px; 
   }
   
   
