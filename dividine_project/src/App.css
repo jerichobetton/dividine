@@ -1,8 +1,11 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 28rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
   text-align: center;
+  background: linear-gradient(to bottom, #ff0000, #0000ff);
 }
 
 .logo {
@@ -40,3 +43,4 @@
 .read-the-docs {
   color: #888;
 }
+

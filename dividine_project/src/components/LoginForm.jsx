@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import loginImage from '/Users/michaelarbuthnot/dividine/src/images/Black male looking at phone.avif';
+import loginImage from '/Users/michaelarbuthnot/dividine-repo/dividine_project/src/images/male looking at phone.jpeg';
 import './form.css';
 
 function LoginForm() {
@@ -17,11 +17,11 @@ function LoginForm() {
         <form className="form">
             <img src={loginImage} alt="Login" className="login-image" />
 
-            <label>Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
 
-            <label>Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="current-password" />
 
             <button type="submit" onClick={handleLogin}>Login</button>
 
