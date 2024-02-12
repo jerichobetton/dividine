@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import loginImage from "/Users/colorcodedlabs/repos/dividine/dividine_project/src/images/male looking at phone.jpeg";
+import loginImage from "../assets/images/male_on_phone.jpeg";
 import "./form.css";
 
 function LoginForm() {
