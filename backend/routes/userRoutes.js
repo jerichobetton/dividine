@@ -5,10 +5,10 @@ const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { userName, email, password } = req.body;
 
     // Check if username already exists
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ username: userName });
     if (existingUser) {
       res.status(400).json({ message: "Username already exists" });
     }
@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
     // Create new user **ADD PASSWORD AND OTHER PROPERTIES**
     const newUser = new User({
-      username,
+      username: userName,
       email,
       password: hashedPassword,
       // other user properties
@@ -34,40 +34,47 @@ router.post("/", async (req, res) => {
 
 router.put("/", async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const updateResponse = await User.updateOne({ username }, { password });
+    const { userName, password, email } = req.body;
+    // Hash the password while updating user
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    const updateResponse = await User.updateOne(
+      { username: userName },
+      { password: hashedPassword, email }
+    );
+
     updateResponse.acknowledged
       ? res.json(updateResponse)
-      : res.status(400).json({ error: `unable to update user ${username}` });
+      : res.status(400).json({ error: `unable to update user ${userName}` });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 // Get User
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const users = await User.find();
+    const user = await User.findById(req.params.id);
 
-    if (users.length === 0) {
-      return res.status(404).json({ message: "No users found" });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
 
-    res.status(200).json(users);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 // Login Api
-router.post("/", async (req, res) => {
+router.post("/login", async (req, res) => {
   // TODO: Implement user login logic
 
   try {
-    const { username, password } = req.body;
+    const { userName, password } = req.body;
 
     // Check if user exists
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username: userName });
     if (!user) {
       return res.status(400).json({ message: "Invalid username or password" });
     }
@@ -86,9 +93,9 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
-    const deletedUser = await Bill.findByIdAndDelete(req.params.id);
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser) {
       return res.status(404).json({ error: "User not found" });
     }
