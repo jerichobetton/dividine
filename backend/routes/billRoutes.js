@@ -4,9 +4,10 @@ const Bill = require("../models/bill");
 
 router.post("/", async (req, res) => {
   try {
-    const { totalAmount, numberOfPeople, tip } = req.body;
+    const { userName, totalAmount, numberOfPeople, tip } = req.body;
 
     const newBill = new Bill({
+      username: userName,
       totalAmount,
       numberOfPeople,
       tip,
@@ -19,6 +20,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Get a Bill
 router.get("/:id", async (req, res) => {
   try {
     const bill = await Bill.findById(req.params.id);
@@ -31,12 +33,25 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Get ALL bills
+router.get("/all/:username", async (req, res) => {
+  try {
+    const allBill = await Bill.find(req.params.username);
+    if (!allBill) {
+      return res.status(404).json({ error: "Bills not found" });
+    }
+    res.json(allBill);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.put("/", async (req, res) => {
   try {
     const { totalAmount, numberOfPeople, tip } = req.body;
     const updateResponse = await Bill.updateOne(
       { _id },
-      { username, totalAmount, numberOfPeople, tip }
+      { totalAmount, numberOfPeople, tip }
     );
     updateResponse.acknowledged
       ? res.json(updateResponse)
@@ -59,4 +74,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
