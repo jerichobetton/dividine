@@ -7,9 +7,31 @@ function DashForm() {
   const [numPeople, setNumPeople] = useState("");
   const [totalBill, setTotalBill] = useState("");
 
+  // Handle total should reload itself without button for "Calulate Total"
   const handleTotal = (e) => {
     e.preventDefault();
+    // Perform the calculation
+    const calculatedTotal = calculateBill(amount, numPeople);
+
+    // Update the totalBill state to display the result
+    setTotalBill(calculatedTotal);
     console.log("Calculating:", amount, numPeople, totalBill);
+  };
+
+  // Function to calculate the bill per person
+  const calculateBill = (amount, numPeople) => {
+    // Convert the values to numbers for calculation
+    const amountNum = parseFloat(amount);
+    const numPeopleNum = parseInt(numPeople);
+
+    if (isNaN(amountNum) || isNaN(numPeopleNum) || numPeopleNum === 0) {
+      return "Invalid input"; // Handle invalid inputs
+    }
+
+    // Calculate the total bill per person
+    const totalPerPerson = (amountNum / numPeopleNum).toFixed(2);
+
+    return totalPerPerson;
   };
 
   const handleRequest = (e) => {
