@@ -83,7 +83,7 @@ function DashForm() {
 
       <label htmlFor="numPeople">Number of People:</label>
       <input
-        type="text"
+        type="number"
         id="numPeople"
         name="numPeople"
         value={numPeople}
