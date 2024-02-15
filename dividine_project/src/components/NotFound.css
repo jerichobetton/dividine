@@ -1,0 +1,8 @@
+.center {
+    background-color: black;
+    margin: auto;
+    text-align: center;
+    width: 30vw;
+    color: white;
+    font-size: 2rem;
+}

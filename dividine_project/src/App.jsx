@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dash from "./pages/Dash";
-import Home from "./pages/Home";
+import NotFound from "./components/NotFound";
 import Login from "./pages/Login";
 import LoginForm from "./components/LoginForm";
 import SignUp from "./pages/SignUp";
-import Hero from "./components/Hero";
 import "./app.css";
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
         <Header />
 
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
           <Route
             path="/"
             element={<LoginForm onLoginSuccess={handleLoginSuccess} />}
@@ -30,6 +28,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dash" element={<Dash />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
