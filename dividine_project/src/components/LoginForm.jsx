@@ -1,24 +1,33 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import loginImage from "../assets/images/male_on_phone.jpeg";
 import "./form.css";
-import axios from "axios";
 
-function LoginForm({ onLoginSuccess }) {
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigateTo = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     // add login logic here
     try {
-      const response = await axios.post("/api/login", { username, password });
-      onLoginSuccess(response.data); // Pass token or user data
+      const response = await axios.post("api/v1/user/login", {
+        email,
+        password,
+      });
+      console.log(response.data);
+      console.log(
+        "YO! You are who you are and who you said you are so come on in"
+      );
     } catch (error) {
-      setError(error.message);
+      console.log(error.response.data.message);
+      console.log("All you do is lie! Lyin");
     }
     console.log("Logging in:", email, password);
+    navigateTo("/dash"); // Redirect to the dashboard after login
   };
 
   return (
