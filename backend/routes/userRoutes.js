@@ -71,18 +71,18 @@ router.post("/login", async (req, res) => {
   // TODO: Implement user login logic
 
   try {
-    const { userName, password } = req.body;
+    const { email, password } = req.body;
 
     // Check if user exists
-    const user = await User.findOne({ username: userName });
+    const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invalid username or password" });
+      return res.status(400).json({ message: "Invalid email or password" });
     }
 
     // Compare password
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(400).json({ message: "Invalid username or password" });
+      return res.status(400).json({ message: "Invalid email or password" });
     }
 
     return res
