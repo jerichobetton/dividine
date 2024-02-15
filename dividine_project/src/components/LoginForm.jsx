@@ -66,7 +66,7 @@ function LoginForm() {
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </p>
       <p>
-        Go back to <Link to="/">Home</Link>
+        Go back to <Link to="/home">Dividine</Link> {/* Add Link component for Home button */}
       </p>
     </form>
   );
