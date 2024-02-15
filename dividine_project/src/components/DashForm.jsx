@@ -1,11 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./form.css";
 
 function DashForm() {
   const [amount, setAmount] = useState("");
   const [numPeople, setNumPeople] = useState("");
   const [totalBill, setTotalBill] = useState("");
+
+  const updateValues = (action, value) => {
+    switch (action) {
+      case "amount":
+        setAmount(value);
+
+        break;
+      case "numPeople":
+        setNumPeople(value);
+        break;
+
+      default:
+        break;
+    }
+    setTotalBill(calculateBill(amount, numPeople));
+  };
 
   // Handle total should reload itself without button for "Calulate Total"
   const handleTotal = (e) => {
@@ -58,15 +75,22 @@ function DashForm() {
 
   // Example POST method implementation:
   async function postData(url = "", data = {}) {
+    // Using AXIOS
+    try {
+      const response = await axios.post(url, data);
+      console.log(response.data); // Pass token or user data
+    } catch (error) {
+      console.log(error);
+    }
     // Default options are marked with *
-    const response = await fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return response.json();
+    // const response = await fetch(url, {
+    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+    // return response.json();
   }
 
   return (
@@ -77,7 +101,7 @@ function DashForm() {
         id="amount"
         name="amount"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={(e) => updateValues("amount", e.target.value)}
         required
       />
 
@@ -87,7 +111,7 @@ function DashForm() {
         id="numPeople"
         name="numPeople"
         value={numPeople}
-        onChange={(e) => setNumPeople(e.target.value)}
+        onChange={(e) => updateValues("numPeople", e.target.value)}
         required
       />
 
