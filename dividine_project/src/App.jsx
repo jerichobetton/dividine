@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"; 
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dash from "./pages/Dash";
@@ -28,7 +28,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/home" element={<Home />} /> 
+          <Route path="/home" element={<Home />} />
           <Route
             path="/"
             element={<LoginForm onLoginSuccess={handleLoginSuccess} />}
@@ -39,11 +39,9 @@ function App() {
           <Route path="/dash" element={<Dash />} />
         </Routes>
         <Footer />
-        
       </div>
     </Router>
   );
 }
 
 export default App;
-
