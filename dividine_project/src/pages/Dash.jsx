@@ -5,7 +5,7 @@ function Dash() {
   return (
     <div className="app-content">
       
-      <h2>Let us Dividine your bill!</h2>
+      <h2>Let us DiviDine your bill!</h2>
       <DashForm /> 
     </div>
   );
