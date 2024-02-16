@@ -6,7 +6,7 @@
     max-width: 100%;
     height: auto;
     padding: 2rem;
-    border-radius: 30%;
+    border-radius: 20%;
   }
 
 .P2 {
@@ -24,5 +24,8 @@
     font-weight: bold;
   }
   
-  
+ .check {
+  border-radius: 50px;
+  width: 90%;
+ } 
   

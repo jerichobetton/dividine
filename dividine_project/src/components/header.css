@@ -1,47 +1,44 @@
 .header {
-    color: #fff;
-    padding: 1rem;
-    padding-top: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2rem;
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  color: #fff;
+  padding: 1rem;
+  padding-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Adjusted */
+  margin-right: rem;
+  margin-left: 2rem;
+  width: 100%; /* Added */
+}
 
-  }
-  
-  .header-buttons button {
-    margin-left: 1rem;
-    padding: 5rem;
-    margin: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2%; /* Adjusted */
+  box-sizing: border-box;
+}
 
-  .log-in-button {
-    border: solid;
-    margin: 10px;
-    padding: 10px;
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+.header-buttons {
+  display: flex;
+}
 
-  .sign-up-button {
-    border: solid;
-    padding: 10px;
-    color: white;
-  }
+.header-buttons button {
+  margin-left: 1rem;
+  margin-right: 5rem; /* Add margin-right */
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
-  h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-  }
-  
-  
-  
-  
+
+.log-in-button, .sign-up-button {
+  border: solid;
+  padding: 10px 20px; /* Adjusted */
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 10px;
+}
+
